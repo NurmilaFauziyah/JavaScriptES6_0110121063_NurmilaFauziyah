@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+</head>
+<body>
+    <h2>Image Picker</h2>
+    <select id="pilihGambar" onchange="cetakGambar()">
+        <option value="anjing">Anjing</option>
+        <option value="buson">Buson</option>
+        <option value="gajah">Gajah</option>
+        <option value="harimau">Harimau</option>
+        <option value="kambing">Kambing</option>
+        <option value="kancil">Kancil</option>
+        <option value="ikan">Ikan</option>
+        <option value="kurakura">Kura-Kura</option>
+        <option value="monyet">Monyet</option>
+        <option value="sapi">Sapi</option>
+    </select>
+    
+    <div id="hasilGambar"></div>
+
+    <script>
+        const pilihGambar = document.getElementById("pilihGambar");
+        const hasilGambar = document.getElementById("hasilGambar");
+
+        var gambar = new Image(300, 300);
+
+        function cetakGambar() {
+            if (pilihGambar.value == "anjing"){
+                gambar.src = "anjing.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar anjing.jpg");
+            } else if(pilihGambar.value == "buson"){
+                gambar.src = "buson.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar buson.jpg");
+            } else if(pilihGambar.value == "gajah"){
+                gambar.src = "gajah.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar gajah.jpg");
+            } else if(pilihGambar.value == "harimau"){
+                gambar.src = "harimau.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar harimau.jpg");
+            } else if(pilihGambar.value == "ikan"){
+                gambar.src = "ikan.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar ikan.jpg");
+            } else if(pilihGambar.value == "kambing"){
+                gambar.src = "kambing.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar kambing.jpg");
+            } else if(pilihGambar.value == "kancil"){
+                gambar.src = "kancil.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar kancil.jpg");
+            } else if(pilihGambar.value == "kancil"){
+                gambar.src = "kancil.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar kancil.jpg");
+            } else if(pilihGambar.value == "kurakura"){
+                gambar.src = "kurakura.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar kura-kura.jpg");
+            } else if(pilihGambar.value == "monyet"){
+                gambar.src = "monyet.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar monyet.jpg");
+            } else{
+                gambar.src = "sapi.jpg";
+                x = document.getElementById("hasilGambar");
+                x.appendChild(gambar);
+                window.alert("Ini gambar sapi.jpg");
+            }
+        }
+    </script>
+</body>
+</html>
