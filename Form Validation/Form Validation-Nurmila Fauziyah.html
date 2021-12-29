@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <h3>Form Validation</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td>Nama Pelanggan</td>
+                <td><input type="text" id="inputNama"></td>
+                <td><div style="color: red;" id="errorName"></div></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" id="inputEmail"></td>
+                <td><div style="color: red;" id="errorEmail"></div></td>
+            </tr>
+            <tr>
+                <td>Jam Keberangkatan</td>
+                <td><input type="time" id="inputJamBerangkat"></td>
+                <td><div style="color: red;" id="errorTime"></div></td>
+            </tr>
+            <tr>
+                <td>Tujuan Keberangkatan</td>
+                <td><input type="text" id="inputTujuan"></td>
+                <td><div style="color: red;" id="errorPurpose"></div></td>
+            </tr>
+            <tr>
+                <td>Jumlah Tiket</td>
+                <td><input type="number" id="inputJumlahTiket"></td>
+                <td><div style="color: red;" id="errorTicketCount"></div></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button id="tombol" onclick="cek()">Submit</button></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- hasil validasi sukses -->
+    <p id="successName"></p>
+    <p id="successEmail"></p>
+    <p id="successTime"></p>
+    <p id="successPurpose"></p>
+    <p id="successTicketCount"></p>
+
+    <script>
+        function cek(){
+            const userNameValue = document.getElementById("inputNama").value;
+            const userEmailValue = document.getElementById("inputEmail").value;
+            const userTimeValue = document.getElementById("inputJamBerangkat").value;
+            const userPurposeValue = document.getElementById("inputTujuan").value;
+            const userTicketCountValue = document.getElementById("inputJumlahTiket").value;
+        
+        function valid(elementId) {
+            document.getElementById(elementId).innerHTML = "";
+        }
+
+        function cetakhasil() {
+            document.getElementById("successName").innerHTML = "Nama : " + userNameValue;
+            document.getElementById("successEmail").innerHTML = "Email : " + userEmailValue;
+            document.getElementById("successTime").innerHTML = "Jam Keberangkatan : " + userTimeValue;
+            document.getElementById("successPurpose").innerHTML = "Tujuan Keberangkatan : " + userPurposeValue;
+            document.getElementById("successTicketCount").innerHTML = "Jumlah Tiket : " + userTicketCountValue;
+        }
+        
+            // cek masukkan nama pengguna
+            if(userNameValue == ""){
+                document.getElementById("errorName").innerHTML = "Nama belum dimasukkan.";
+            }else if(userNameValue.length > 30) {
+                document.getElementById("errorName").innerHTML = "Nama yang Anda masukkan lebih dari 30 karakter.";
+            }else{
+                valid("errorName");
+            }
+
+            // cek masukkan email pengguna
+            if(userEmailValue === ""){
+                document.getElementById("errorEmail").innerHTML = "Email belum dimasukkan.";
+            }else if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userEmailValue)){
+                valid("errorEmail");
+            }else{
+                document.getElementById("errorEmail").innerHTML = "Email yang Anda masukkan tidak tepat.";
+            }
+
+            // cek jam keberangkatan
+            if(userTimeValue == ""){
+                document.getElementById("errorTime").innerHTML = "Jam keberangkatan belum dimasukkan.";
+            }else{
+                valid("errorTime");
+            }
+
+            // cek tujuan keberangkatan
+            if(userPurposeValue == ""){
+                document.getElementById("errorPurpose").innerHTML = "Tujuan keberangkatan belum dimasukkan.";
+            }else{
+                valid("errorPurpose");
+            }
+
+            // cek jumlah tiket pengguna
+            if(userTicketCountValue <= 0 || userTicketCountValue > 10){
+                document.getElementById("errorTicketCount").innerHTML = "Jumlah tiket yang Anda masukkan salah.";
+            }else{
+                valid("errorTicketCount");
+            }
+
+            // cek validasi semua elemen 
+            if((userNameValue != "" && userNameValue.length <= 30) && (/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(userEmailValue)) && (userTimeValue != 0) && (userPurposeValue != "" ) && (userTicketCountValue > 0 && userTicketCountValue <= 10)) {
+                cetakhasil();
+            } 
+        }
+
+    </script>
+</body>
+</html>
